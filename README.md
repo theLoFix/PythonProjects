@@ -1,1 +1,1 @@
-Repos for small Python project
+Repos for small Python projects
