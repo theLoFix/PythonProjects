@@ -5,7 +5,7 @@ from typing import List, Annotated
 app = FastAPI()
 
 
-@app.post("/sum")
+@app.post("/sum")       #Wrapper for mymath.my_sum
 def api_sum(
     lst: List[int | float],
     api_key: Annotated[str, Header()]
@@ -14,11 +14,13 @@ def api_sum(
     Calculate the sum of a list of numbers.
     """
     
-    if api_key != "TAJNEHASLO" :
-        return HTTPException(
+    if api_key != "TAJNEHASLO":
+        raise HTTPException(
             status_code=403,
-            detail="Invalid API key"
-        )
+            detail={
+                "error":"Invalid API key"
+                }
+            )
 
     return {
         "result": mymath.my_sum(lst)
