@@ -150,7 +150,7 @@ while True:
             skip_users_input = True
         elif output_msg.name == "city_to_latitute_longitute":
             arg = json.loads(output_msg.arguments)
-            res = city_to_latlon(arg["city_name"])
+            res = city_to_latlon (arg["city_name"])
             chatlog.append(
             {   
                     "type": "function_call_output",
